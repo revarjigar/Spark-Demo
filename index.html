@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header>
+    <h1>
+        <a class="noDecoration" href="index.html">Spark App</a>
+    </h1>
+</header>
+<nav>
+    <ul class="nav nav-pills">
+        <li>
+            <a href="#/create">Create User</a>
+        </li>
+        <li>
+            <a href="#/update">Update User</a>
+        </li>
+        <li>
+            <a href="#/getAll">Get All</a>
+        </li>
+    </ul>
+</nav>
+<div class="col-md-6" ng-view></div>
+<script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-messages.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-cookies.js"></script>
+<script src="app.js"></script>
+<script src="getAll.controller.js"></script>
+<script src="getAll.service.js"></script>
+<script src="create.controller.js"></script>
+<script src="create.service.js"></script>
+<script src="update.controller.js"></script>
+</body>
+</html>

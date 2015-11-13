@@ -1,0 +1,61 @@
+
+<form ng-if="!newVm.showSuccess" ng-submit="newVm.addReservation(newResForm.$valid)" novalidate name="newResForm" class="error animate-if">
+
+    <div class="input-group margin-bottom-sm col-md-6">
+        <label >First Name</label>
+        <input class="form-control" type="text" placeholder="" ng-model="newVm.newReservation.fname" required  name="fname">
+    </div>
+    <div ng-messages="newResForm.fname.$error" ng-if="newResForm.fname.$dirty">
+        <p ng-message="required">Required</p>
+    </div>
+
+    <div class="input-group margin-bottom-sm col-md-6">
+        <label >Last Name</label>
+        <input class="form-control" type="text" placeholder="" ng-model="newVm.newReservation.lastname" required  name="lastname">
+    </div>
+    <div ng-messages="newResForm.lastname.$error" ng-if="newResForm.lastname.$dirty">
+        <p ng-message="required">Required</p>
+    </div>
+
+    <div class="input-group margin-bottom-sm col-md-6">
+        <label >Age</label>
+        <input class="form-control" type="number" ng-model="newVm.newReservation.guests"  required max="100" min="1" value="1" name="age">
+    </div>
+    <div ng-messages="newResForm.age.$error" ng-if="newResForm.age.$dirty">
+        <p ng-message="required">Required</p>
+        <p ng-message="min">Age must be greater than one</p>
+    </div>
+
+    <div class="input-group margin-bottom-sm col-md-6 ">
+        <label >Gender</label></br>
+        <input  ng-model="newVm.newReservation.gender"   name="gender" type="radio" name="gender" /> : Male<br />
+        <input ng-model="newVm.newReservation.gender"  name="gender" type="radio" name="gender" /> : Female<br />
+    </div>
+    <div ng-messages="newResForm.gender.$error" ng-if="newResForm.gender.$dirty">
+        <p ng-message="required">Required</p>
+    </div>
+
+    <div class="input-group margin-bottom-sm col-md-6">
+        <label >Phone</label>
+        <input class="form-control" type="tel" placeholder="xxxxxxxxxx" ng-model="newVm.newReservation.phone" required name="contact" ng-pattern="/^[0-9]{10}$/">
+    </div>
+    <div ng-messages="newResForm.contact.$error" ng-if="newResForm.contact.$dirty">
+        <p ng-message="required">Required</p>
+        <p ng-message="pattern">Contact Number must be 10 digits</p>
+    </div>
+
+    <div class="input-group margin-bottom-sm col-md-6">
+        <label >Zip</label>
+        <input class="form-control" type="number" ng-model="newVm.newReservation.zip" placeholder="zip" name="zip" >
+    </div>
+    <div ng-messages="newResForm.zip.$error" ng-if="newResForm.zip.$dirty">
+        <p ng-message="number">zip must be valid</p>
+    </div>
+
+    <button class="btn btn-danger btn-m btn-rate margin" ng-disabled="!newResForm.$valid" type="submit">Reserve</button>
+</form>
+
+<div ng-if="newVm.showSuccess" class="animate-if">
+    <h4>Please note your reservation ID</h4>
+    <h4>Reservation ID: {{newVm.reservationID}}</h4>
+</div>

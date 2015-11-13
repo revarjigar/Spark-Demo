@@ -1,0 +1,29 @@
+<div class="container padding">
+    <input class="form-control " type="search" ng-model="rsvVm.searchStr" placeholder="Search Here...">
+    <hr>
+    <table class="table padding table-responsive table-striped ">
+        <thead>
+        <tr>
+            <th ng-click="rsvVm.sort.by= 'id'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Id</th>
+            <th ng-click="rsvVm.sort.by= 'fname'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">First Name</th>
+            <th ng-click="rsvVm.sort.by= 'lastname'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Last Name</th>
+            <th ng-click="rsvVm.sort.by= 'age'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Age</th>
+            <th ng-click="rsvVm.sort.by= 'gender'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Gender</th>
+            <th ng-click="rsvVm.sort.by= 'phone'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Phone</th>
+            <th ng-click="rsvVm.sort.by= 'zip'; rsvVm.sort.reverse = !rsvVm.sort.reverse;">Zip</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="emp in rsvVm.reservations | filter: rsvVm.searchStr | orderBy:rsvVm.sort.by: rsvVm.sort.reverse">
+            <td>{{emp.id}}</td>
+            <td>{{emp.fname}}</td>
+            <td>{{emp.lastname}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.zip}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
